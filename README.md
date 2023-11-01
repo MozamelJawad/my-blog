@@ -76,7 +76,9 @@ bundle install
 To use, run:
 
 ```
-ruby main.rb
+rails server
+or
+rails s
 ```
 
 ### Run tests <a name="run tests"></a>
@@ -89,7 +91,7 @@ rspec
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-## 👥 Author <a name="author">2</a>
+## 👥 Author <a name="author"></a>
 
 - GitHub: [@MozamelJawad](https://github.com/MozamelJawad)
 - Twitter: [@mozameljawad](https://twitter.com/mozameljawad)
@@ -106,7 +108,7 @@ rspec
 
 Contributions, issues, and feature requests are welcome!
 
-Feel free to check the [issues page](../../issues/).
+Feel free to check the [issues page](../issues/).
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
