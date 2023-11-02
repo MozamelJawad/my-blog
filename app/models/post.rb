@@ -5,11 +5,14 @@ class Post < ApplicationRecord
 
   validates :title, presence: true
 
-  def update_user_post_counter
-    author.increment!(:posts_counter)
-  end
+  after_save :update_user_post_counter
 
   def most_recent_comments(limit = 5)
     comments.order(created_at: :desc).limit(limit)
+  end
+
+  private
+  def update_user_post_counter
+    author.increment!(:posts_counter)
   end
 end
