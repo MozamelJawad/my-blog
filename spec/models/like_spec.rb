@@ -5,7 +5,6 @@ RSpec.describe Like, type: :model do
   let(:post) { Post.create(author: user, title: 'Mission Impossible', text: 'Fallout', comments_counter: 0) }
   let(:like) { Like.create(user:, post:) }
 
-
   describe 'validation' do
     it 'should confirm the validation of the attributes' do
       expect(like).to be_valid
