@@ -15,7 +15,7 @@ RSpec.describe Post, type: :model do
       post = Post.new(title: 'a' * 251, author: User.new)
 
       expect(post).not_to be_valid
-      expect(post.errors[:title]).to include("is too long (maximum is 250 characters)")
+      expect(post.errors[:title]).to include('is too long (maximum is 250 characters)')
     end
 
     it 'should show error for manimum length of title' do
@@ -28,26 +28,27 @@ RSpec.describe Post, type: :model do
       post = Post.new(comments_counter: -1, author: User.new)
 
       expect(post).not_to be_valid
-      expect(post.errors[:comments_counter]).to include("must be greater than or equal to 0")
+      expect(post.errors[:comments_counter]).to include('must be greater than or equal to 0')
     end
 
     it 'should validate numericality of likes_counter' do
       post = Post.new(likes_counter: -1, author: User.new)
 
       expect(post).not_to be_valid
-      expect(post.errors[:likes_counter]).to include("must be greater than or equal to 0")
+      expect(post.errors[:likes_counter]).to include('must be greater than or equal to 0')
     end
   end
 
   describe 'most_recent_comments' do
     it 'should return the most recent comments based on the limit number' do
       user = User.create(name: 'Tom', photo: 'https://unsplash.com/photos/F_-0BxGuVvo', bio: 'Teacher from Mexico.')
-      post = Post.create(author: user, title: 'Mission Impossible', text: 'Fallout', likes_counter: 0, comments_counter: 0)
-      comment1 = Comment.create(user: user, post: post, text: 'Comment 1')
-      comment2 = Comment.create(user: user, post: post, text: 'Comment 2')
-      comment3 = Comment.create(user: user, post: post, text: 'Comment 3')
-      comment4 = Comment.create(user: user, post: post, text: 'Comment 4')
-      comment5 = Comment.create(user: user, post: post, text: 'Comment 5')
+      post = Post.create(author: user, title: 'Mission Impossible', text: 'Fallout', likes_counter: 0,
+                         comments_counter: 0)
+      comment1 = Comment.create(user:, post:, text: 'Comment 1')
+      comment2 = Comment.create(user:, post:, text: 'Comment 2')
+      comment3 = Comment.create(user:, post:, text: 'Comment 3')
+      comment4 = Comment.create(user:, post:, text: 'Comment 4')
+      comment5 = Comment.create(user:, post:, text: 'Comment 5')
 
       expect(post.most_recent_comments(1)).to eq([comment5])
       expect(post.most_recent_comments(2)).to eq([comment5, comment4])
@@ -59,7 +60,8 @@ RSpec.describe Post, type: :model do
 
   describe 'after_save' do
     it 'should update the author posts counter' do
-      post = Post.create(author: user, title: 'Mission Impossible', text: 'Fallout', likes_counter: 0, comments_counter: 0)
+      post = Post.create(author: user, title: 'Mission Impossible', text: 'Fallout', likes_counter: 0,
+                         comments_counter: 0)
       expect { post.save }.to change { user.posts_counter }.by(1)
     end
   end
