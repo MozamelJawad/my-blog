@@ -32,7 +32,7 @@
         <% end %>
     </div>
 
-      <% post.comments.each do |comment| %>
+      <% post.most_recent_comments.each do |comment| %>
     <div class="card mb-2">
         <div class="card-body">
             <p class="card-text"><%= comment.author.name %> :<%= comment.text %> </p>
