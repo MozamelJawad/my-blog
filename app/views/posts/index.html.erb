@@ -1,1 +1,50 @@
-<h1>Here is the username and list of comments for each post!</h1>
+<div class="sub-container"  style="max-width: 540px;">
+    <div class="card mb-3">
+        <div class="row g-0">
+            <div class="col-md-4">
+            <img src=<%= @user.photo %> class="img-fluid img-thumbnail rounded-start" alt=<%= @user.name %>>
+        </div>
+        <div class="col-md-8">
+            <div class="card-body">
+             <h5 class="card-title"><%= @user.name %></h5>
+             <p class="card-text text-end">Number of posts: <%= @user.posts_counter %> </p>
+            </div>
+        </div>
+        </div>
+    </div>
+
+    <div class="card mb-2">
+    <div class="card-body">
+        <h6 class="card-title">Bio</h6>
+        <p class="card-text"><%= @user.bio %></p>
+    </div>
+    </div>
+
+    <% if @posts.present? %>
+    <% @posts.each do |post| %>
+    <div class="card mb-2">
+        <%= link_to user_post_path(@user, post), class: 'no-link' do %>
+        <div class="card-body">
+            <h6 class="card-title"><%= post.title %> </h6>
+            <p class="card-text"><%= post.text %> </p>
+            <p class="card-link text-end">Comment: <%= post.comments_counter %>, Likes: <%= post.likes_counter %>  </p>
+        </div>
+        <% end %>
+    </div>
+
+      <% post.most_recent_comments.each do |comment| %>
+    <div class="card mb-2">
+        <div class="card-body">
+            <p class="card-text"><%= comment.author.name %> :<%= comment.text %> </p>
+        </div>
+    </div>
+    <% end %>
+    <% end %>
+     <div class="text-center mb-5">
+        <%= link_to 'Pagination', user_posts_path(@user), class: 'btn btn-primary' %>
+    </div>
+
+    <% else %>
+    <p style="color:blue">There are currently no posts for this user in the system.</p>
+    <% end %>
+</div>
