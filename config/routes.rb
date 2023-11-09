@@ -6,7 +6,10 @@ Rails.application.routes.draw do
   # get "users", to: "users#index", as: "users"
   # get "users/:id", to: "users#show", as: "user"
 
-  resources :users, only: [:index, :show] do
-    resources :posts, only: [:index, :show]
+  resources :users do
+    resources :posts do
+      resources :comments
+      resources :likes
+    end
   end
 end
