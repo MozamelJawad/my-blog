@@ -1,13 +1,13 @@
- .no-link {
-   text-decoration: none;
- }
+.no-link {
+  text-decoration: none;
+}
 
- .no-link:hover {
-   text-decoration: none;
-   background-color: aliceblue;
- }
+.no-link:hover {
+  text-decoration: none;
+  background-color: aliceblue;
+}
 
- .comments {
-    margin-bottom: 10px;
-    border: 1px solid #ccc;
- }
+.comments {
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+}
