@@ -1,6 +1,4 @@
-
 class CommentsController < ApplicationController
-
   def new
     @user = current_user
     @post = Post.find(params[:post_id])
@@ -15,7 +13,7 @@ class CommentsController < ApplicationController
     @user = Post.find(params[:post_id]).author
 
     if @comment.save
-      redirect_to user_posts_path(@user) , notice: 'Comment was successfully created.'
+      redirect_to user_posts_path(@user), notice: 'Comment was successfully created.'
     else
       redirect_to user_posts_path(@user), alert: 'Error creating comment.'
     end
