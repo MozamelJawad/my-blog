@@ -27,9 +27,15 @@
         <div class="card-body">
             <h6 class="card-title"><%= post.title %> </h6>
             <p class="card-text"><%= post.text %> </p>
-            <p class="card-link text-end">Comment: <%= post.comments_counter %>, Likes: <%= post.likes_counter %>  </p>
+            <p class="card-link text-end">Comment: <%= post.comments_counter || 0 %>, Likes: <%= post.likes_counter || 0 %> </p>
         </div>
         <% end %>
+
+         <div class="comment-like">
+            <%= link_to 'Add Comment',  new_user_post_comment_path(@user, post), class: 'col-md-3 m-3 btn btn-secondary comment-btn' %>
+            <%= button_to 'Like',  user_post_likes_path(@user, post), method: :post, class: 'col-md-2 m-3 btn btn-secondary' %>
+        </div>
+
     </div>
     <% end %>
 
@@ -40,5 +46,9 @@
     <% else %>
     <p style="color:blue">There are currently no posts for this user in the system.</p>
     <% end %>
+
+    <div class="text-center mt-3">
+        <%= link_to 'Create New Post', new_user_post_path(user_id: @user) , class: 'btn btn-success' %>
+    </div>
    
 </div>

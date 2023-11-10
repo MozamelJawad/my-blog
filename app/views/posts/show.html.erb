@@ -2,7 +2,7 @@
     <div class="card mb-2">
         <div class="card-body">
             <h6 class="card-title"><%= @post.title %> by <%= @post.author.name %> </h6>
-            <p class="card-text text-end">Comments: <%= @post.comments_counter %>, Likes: <%= @post.likes_counter %> </p>
+            <p class="card-text text-end">Comments: <%= @post.comments_counter || 0 %>, Likes: <%= @post.likes_counter || 0 %> </p>
             <p class="card-link"><%= @post.text %></p>
         </div>
     </div>
@@ -13,6 +13,10 @@
              <p class="card-text"><%= comment.author.name %>: <%= comment.text %></p>
             <% end %>
         </div>
+    </div>
+
+    <div class="text-center mb-4">
+        <%= link_to 'Back to Posts', user_posts_path(user_id: @user.id), class: 'btn btn-primary' %>
     </div>
 
 </div>

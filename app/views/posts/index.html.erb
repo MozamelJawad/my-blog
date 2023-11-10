@@ -7,7 +7,7 @@
         <div class="col-md-8">
             <div class="card-body">
              <h5 class="card-title"><%= @user.name %></h5>
-             <p class="card-text text-end">Number of posts: <%= @user.posts_counter %> </p>
+             <p class="card-text text-end">Number of posts: <%= @user.posts_counter || 0 %> </p>
             </div>
         </div>
         </div>
@@ -27,9 +27,13 @@
         <div class="card-body">
             <h6 class="card-title"><%= post.title %> </h6>
             <p class="card-text"><%= post.text %> </p>
-            <p class="card-link text-end">Comment: <%= post.comments_counter %>, Likes: <%= post.likes_counter %>  </p>
+            <p class="card-link text-end">Comment: <%= post.comments_counter || 0 %>, Likes: <%= post.likes_counter || 0 %>  </p>
         </div>
         <% end %>
+        <div class="comment-like">
+            <%= link_to 'Add Comment',  new_user_post_comment_path(@user, post), class: 'col-md-3 m-3 btn btn-secondary comment-btn' %>
+            <%= button_to 'Like',  user_post_likes_path(@user, post), method: :post, class: 'col-md-2 m-3 btn btn-secondary' %>
+        </div>
     </div>
 
       <% post.most_recent_comments.each do |comment| %>
@@ -40,8 +44,8 @@
     </div>
     <% end %>
     <% end %>
-     <div class="text-center mb-5">
-        <%= link_to 'Pagination', user_posts_path(@user), class: 'btn btn-primary' %>
+      <div class="text-center mt-3 mb-5">
+        <%= link_to 'Create New Post', new_user_post_path(user_id: @user.id) , class: 'btn btn-success' %>
     </div>
 
     <% else %>
