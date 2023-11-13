@@ -12,7 +12,7 @@
   - [Install](#install)
   - [Usage](#usage)
   - [Run tests](#run-tests)
-- [👥 Author](#author)
+- [👥 Authors](#authors)
 - [🔭 Future Features](#future-features)
 - [🤝 Contributing](#contributing)
 - [⭐️ Show your support](#support)
@@ -91,11 +91,15 @@ rspec
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-## 👥 Author <a name="author"></a>
+## 👥 Authors <a name="authors"></a>
 
+👤 Mozamel Jawad
 - GitHub: [@MozamelJawad](https://github.com/MozamelJawad)
 - Twitter: [@mozameljawad](https://twitter.com/mozameljawad)
 - LinkedIn: [mozamel](https://www.linkedin.com/in/mozamel-jawad/)
+
+👤 Fatuma Hussein
+- GitHub: [&nbsp; &nbsp; @githubhandle](https://github.com/fatmahussein)
 
 ## 🔭 Future Features <a name="future-features"></a>
 
