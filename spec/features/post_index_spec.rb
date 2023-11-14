@@ -57,6 +57,12 @@ RSpec.describe 'Post', type: :feature do
       click_link @post_1.title
       expect(page).to have_current_path(user_post_path(@user_1, @post_1))
     end
+
+    it 'Should display the section to create a new post' do
+      visit user_posts_path(@user_1)
+      expect(page).to have_content('Create New Post')
+    end
+    
   end
 
 end
