@@ -28,6 +28,12 @@ RSpec.describe 'User', type: :feature do
         expect(page).to have_content(@user_2.posts_counter)
         expect(page).to have_content(@user_3.posts_counter)
       end
+
+      it 'should redirect to that users show page when clicking on the username' do
+        visit users_path
+        click_link @user_1.name
+        expect(page).to have_current_path(user_path(@user_1))
+      end
     end
 
   end
