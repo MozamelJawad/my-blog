@@ -45,5 +45,11 @@ RSpec.describe 'Post', type: :feature do
       expect(page).to have_content(@comment_1.text)
       expect(page).to have_content(@comment_2.text)
     end
+
+    it "Should display the 'Back to Posts' button" do
+      visit user_post_path(@user_1, @post_1)
+      expect(page).to have_link('Back to Posts')
+    end
+
   end
 end
