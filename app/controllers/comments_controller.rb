@@ -13,9 +13,9 @@ class CommentsController < ApplicationController
     @user = Post.find(params[:post_id]).author
 
     if @comment.save
-      redirect_to user_posts_path(@user)  #, notice: 'Comment was successfully created.'
+      redirect_to user_posts_path(@user)  
     else
-      redirect_to user_posts_path(@user) #, alert: 'Error creating comment.'
+      redirect_to user_posts_path(@user)
     end
   end
 
