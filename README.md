@@ -58,10 +58,10 @@ https://github.com/MozamelJawad/my-blog.git
 
 ### Prerequisites <a name="prerequisites"></a>
 
-Ruby
-Ruby on Rails
-PostgreSQL
-Git
+- Ruby
+- Ruby on Rails
+- PostgreSQL
+- Git
 
 ### Install <a name="install"></a>
 
