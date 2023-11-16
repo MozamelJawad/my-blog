@@ -39,5 +39,4 @@ class PostsController < ApplicationController
       redirect_to user_posts_path(@user), alert: 'Error deleting post.'
     end
   end
-
 end

@@ -32,7 +32,6 @@ class CommentsController < ApplicationController
     else
       redirect_to user_post_path(@user, @post), alert: 'Error deleting comment.'
     end
-
   end
 
   private
@@ -40,5 +39,4 @@ class CommentsController < ApplicationController
   def comment_params
     params.require(:comment).permit(:text)
   end
-
 end
