@@ -8,9 +8,13 @@
     </div>
 
     <div class="card mb-2">
-        <div class="card-body">
+        <div class="card-body del-btn">
             <% @post.comments.includes(:author).each do |comment| %>
-             <p class="card-text"><%= comment.author.name %>: <%= comment.text %></p>
+             <p class="card-text p"><%= comment.author.name %>: <%= comment.text %></p>
+            <% if can? :destroy, comment %>
+                <%= button_to 'Delete Comment', user_post_comment_path(@post.author, @post.id, id: comment.id), method: :delete, data: { confirm: "Are you sure?", turbo_confirm: "Are you sure?" }, class: 'btn btn-danger btn-sm col-md-3 float-end' %>
+            <% end %>
+            <hr class="mt-5">
             <% end %>
         </div>
     </div>
