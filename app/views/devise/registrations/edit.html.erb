@@ -25,6 +25,11 @@
     <%= f.text_field :photo, class: 'form-control', autofocus: true, autocomplete: "photo" %>
   </div>
 
+  <div class="field mb-2">
+    <%= f.label :role, class: 'form-label' %><br />
+    <%= f.text_field :role, class: 'form-control', autofocus: true, autocomplete: "role" %>
+  </div>
+
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
     <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
   <% end %>
