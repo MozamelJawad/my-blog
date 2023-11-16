@@ -21,7 +21,6 @@ class CommentsController < ApplicationController
     end
   end
 
-
   def destroy
     @user = User.find_by_id(params[:user_id])
     @post = Post.find_by_id(params[:post_id])
@@ -41,7 +40,5 @@ class CommentsController < ApplicationController
   def comment_params
     params.require(:comment).permit(:text)
   end
-
-
 
 end
