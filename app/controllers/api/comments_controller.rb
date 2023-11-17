@@ -15,4 +15,7 @@ skip_before_action :verify_authenticity_token
       render json: {success: false, errors: @comment.errors.full_messages }, status: :unprocessable_entity
     end
   end
+  def comment_params
+    params.require(:comment).permit(:text)
+  end
 end
