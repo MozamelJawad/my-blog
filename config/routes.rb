@@ -3,6 +3,13 @@ Rails.application.routes.draw do
 
   root "users#index"
 
+
+  namespace :api do
+    resources :posts do
+      resources :comments
+    end
+  end
+
   resources :users do
     resources :posts do
       resources :comments
