@@ -56,13 +56,13 @@ RSpec.describe Post, type: :model do
       expect(post.most_recent_comments(4)).to eq([comment5, comment4, comment3, comment2])
       expect(post.most_recent_comments(5)).to eq([comment5, comment4, comment3, comment2, comment1])
     end
-    end
+  end
 
-    describe 'after_save' do
-      it 'should update the author posts counter' do
-        post = Post.create(author: user, title: 'Mission Impossible', text: 'Fallout', likes_counter: 0,
-                           comments_counter: 0)
-        expect { post.save }.to change { user.posts_counter }.by(1)
-      end
+  describe 'after_save' do
+    it 'should update the author posts counter' do
+      post = Post.create(author: user, title: 'Mission Impossible', text: 'Fallout', likes_counter: 0,
+                         comments_counter: 0)
+      expect { post.save }.to change { user.posts_counter }.by(1)
     end
+  end
 end
