@@ -1,8 +1,11 @@
 Rails.application.routes.draw do
+
+  mount Rswag::Ui::Engine => '/api-docs'
+  mount Rswag::Api::Engine => '/api-docs'
+
   devise_for :users
 
   root "users#index"
-
 
   namespace :api do
     resources :posts do

@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe Like, type: :model do
   let(:user) { User.create(name: 'Tom', photo: 'https://unsplash.com/photos/F_-0BxGuVvo', bio: 'Teacher from Mexico.') }
   let(:post) { Post.create(author: user, title: 'Mission Impossible', text: 'Fallout', comments_counter: 0) }
-  let(:like) { Like.create(user:, post:) }
+  let(:like) { Like.create(author: user, post:) }
 
   describe 'validation' do
     it 'should confirm the validation of the attributes' do

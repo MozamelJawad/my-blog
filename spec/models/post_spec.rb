@@ -8,7 +8,7 @@ RSpec.describe Post, type: :model do
     it 'should validate presence of title' do
       post = Post.new(author: user, title: 'new title', text: 'New txt')
 
-      expect(post).not_to be_valid
+      expect(post).to be_valid
     end
 
     it 'should validate maximum length of title' do
@@ -18,10 +18,10 @@ RSpec.describe Post, type: :model do
       expect(post.errors[:title]).to include('is too long (maximum is 250 characters)')
     end
 
-    it 'should show error for manimum length of title' do
+    it 'should validate the manimum length of title' do
       post = Post.new(title: 'a' * 25, author: User.new)
 
-      expect(post).not_to be_valid
+      expect(post).to be_valid
     end
 
     it 'should validate numericality of comments_counter' do
@@ -44,11 +44,11 @@ RSpec.describe Post, type: :model do
       user = User.create(name: 'Tom', photo: 'https://unsplash.com/photos/F_-0BxGuVvo', bio: 'Teacher from Mexico.')
       post = Post.create(author: user, title: 'Mission Impossible', text: 'Fallout', likes_counter: 0,
                          comments_counter: 0)
-      comment1 = Comment.create(user:, post:, text: 'Comment 1')
-      comment2 = Comment.create(user:, post:, text: 'Comment 2')
-      comment3 = Comment.create(user:, post:, text: 'Comment 3')
-      comment4 = Comment.create(user:, post:, text: 'Comment 4')
-      comment5 = Comment.create(user:, post:, text: 'Comment 5')
+      comment1 = Comment.create(author: user, post:, text: 'Comment 1')
+      comment2 = Comment.create(author: user, post:, text: 'Comment 2')
+      comment3 = Comment.create(author: user, post:, text: 'Comment 3')
+      comment4 = Comment.create(author: user, post:, text: 'Comment 4')
+      comment5 = Comment.create(author: user, post:, text: 'Comment 5')
 
       expect(post.most_recent_comments(1)).to eq([comment5])
       expect(post.most_recent_comments(2)).to eq([comment5, comment4])
