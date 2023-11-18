@@ -6,7 +6,7 @@ RSpec.describe Comment, type: :model do
 
   describe 'validations' do
     it 'should validate presence of text' do
-      comment = Comment.create(post:, user:, text: 'Hi Tom!')
+      comment = Comment.create(post:, author: user, text: 'Hi Tom!')
       expect(comment).to be_valid
     end
     it 'should show an error if comments_counter is negative' do

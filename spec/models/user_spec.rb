@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe User, type: :model do
   subject do
     User.new(name: 'Tom', photo: 'https://unsplash.com/photos/F_-0BxGuVvo', bio: 'Teacher from Mexico.',
-             posts_counter: 0)
+             posts_counter: 0, email: 'tom@gmail.com', password: '123456' )
   end
 
   describe 'User attributes test, the user:' do
