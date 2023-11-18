@@ -72,6 +72,8 @@ group :test do
   gem 'selenium-webdriver'
 end
 
+gem 'rswag'
+
 group :development, :test do
   gem 'debug', platforms: %i[mri windows]
   gem 'rails-controller-testing', '~> 1.0'
